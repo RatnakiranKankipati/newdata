@@ -1,4 +1,4 @@
-require("dotenv").config()
+srequire("dotenv").config()
 const mongoose = require("mongoose")
 const express = require("express")
 const cors = require("cors")
@@ -15,7 +15,7 @@ app.use("/gaylordusers", userroute)
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect(()=>{
+mongoose.connect(process.env.Mdata,()=>{
     console.log("db is connected");
 })
 
