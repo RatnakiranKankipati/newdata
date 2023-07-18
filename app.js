@@ -15,12 +15,13 @@ app.use("/gaylordusers",userroute)
 
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+    connectTimeoutMS: 30000,
+    socketTimeoutMS: 30000
+
 }).then(() => {
-  console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB');
 }).catch((error) => {
-  console.error('MongoDB connection error:', error);
+    console.error('MongoDB connection error:', error);
 });
 
 app.listen(process.env.PORT,()=>{
