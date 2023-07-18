@@ -13,18 +13,11 @@ app.use(express.json())
 // users route
 app.use("/gaylordusers",userroute)
 
-mongoose.set('strictQuery', false);
-mongoose.connect(process.env.MONGO_URI, {
-    connectTimeoutMS: 30000,
-    socketTimeoutMS: 30000
-
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch((error) => {
-    console.error('MongoDB connection error:', error);
-});
+mongoose.connect(process.env.MONGO_URI,()=>{
+    console.log("db is connected");
+})
 
 app.listen(process.env.PORT,()=>{
     console.log("sever is connected")
 })
-// gaylordstatistics123
+
