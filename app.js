@@ -15,7 +15,7 @@ app.use("/gaylordusers",userroute)
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect(process.env.MONGO_URI,()=>{
+mongoose.connect("mongodb+srv://gaylord-automation:gaylordautomation123@cluster0.op3paui.mongodb.net/gaylord?retryWrites=true&w=majority",()=>{
     console.log("db is connected");
 })
 
