@@ -15,7 +15,7 @@ app.use("/gaylordusers", userroute)
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect(process.env.Mdata,()=>{
+mongoose.connect(process.env.MONGO_URI,()=>{
     console.log("db is connected");
 })
 
