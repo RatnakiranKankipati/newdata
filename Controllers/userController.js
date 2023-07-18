@@ -27,7 +27,7 @@ exports.signup = async (req, res) => {
                 message: "all the fields are required"
             })
         }
-        const alreadyuser = await userModel.findOne({ email})
+        const alreadyuser = await userModel.findOne({ "email":email})
         if (alreadyuser) {
             return res.status(401).json({
                 status: "fail",
