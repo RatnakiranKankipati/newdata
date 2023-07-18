@@ -15,7 +15,7 @@ app.use("/gaylordusers", userroute)
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect(process.env.MONGO_URI,()=>{
+mongoose.connect("mongodb+srv://gaylordstatistics:gaylordstatistics123@cluster0.fwnqlsv.mongodb.net/gaylord-users?retryWrites=true&w=majority",()=>{
     console.log("db is connected");
 })
 
