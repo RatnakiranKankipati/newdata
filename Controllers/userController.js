@@ -119,7 +119,7 @@ exports.updatePassword = async (req, res, next) => {
     user.password = req.body.password
     user.passwordConfirm = undefined
     await user.save()
-    return createtoken(user, 201, res)
+    return createSendToken(user, 201, res)
 }
 
 
