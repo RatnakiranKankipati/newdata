@@ -118,7 +118,7 @@ exports.updatePassword = async (req, res, next) => {
     if (password != passwordConfirm) {
         return res.status(400).json({
             status: "fail",
-            message: "Newpassword & Confirm password not match"
+            message: "New & Confirm password's not match"
         })
 
     }
