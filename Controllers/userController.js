@@ -92,6 +92,35 @@ exports.login = async (req, res) => {
         console.log(err);
     }
 }
+exports.updatePassword = async (req, res, next) => {
+    const { password, passwordConfirm, passwordCurrent } = req.body
+    const user = await userModel.findOne({ _id: req.user.userId })
+    if (!user) {
+        return res.status.json({
+            status: "fail",
+            meassage: "something wrong"
+        })
+    }
+    const userpassword = await bcrypt.compare(passwordCurrent, user.password)
+
+    if (!userpassword) {
+        return res.status(400).json({
+            status: "fail",
+            msg: "your current password is not correct"
+        })
+    }
+    if (password != passwordConfirm) {
+        return res.status(400).json({
+            status: "fail",
+            msg: "your newpassword and your confirm password somrthing wrong"
+        })
+
+    }
+    user.password = req.body.password
+    user.passwordConfirm = undefined
+    await user.save()
+    return createtoken(user, 201, res)
+}
 
 
 
