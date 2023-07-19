@@ -6,9 +6,9 @@ const auth = async (req, res, next) => {
   // check header
   const authHeader = req.headers.authorization
   if (!authHeader || !authHeader.startsWith('Bearer')) {
-    // throw new UnauthenticatedError('Authentication invalid')
+    // throw new UnauthenticatedError('Invaild credentials...!')
     return res.status(400).json({
-      msg:"Authentication invalid"
+     message:"Invaild credentials...!"
     })
   }
   const token = authHeader.split(' ')[1]
@@ -21,7 +21,7 @@ const auth = async (req, res, next) => {
   } catch (error) {
     // throw new UnauthenticatedError('Authentication invalid')
     return res.status(400).json({      
-      msg:"Authentication invalid"
+      message:"Invaild credentials...!"
     })
   }
 }
