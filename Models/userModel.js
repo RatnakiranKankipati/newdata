@@ -18,23 +18,12 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    // role:{
-    //     type:String
-    // },
-    // passwordConfirm:{
-    //     type:String,
-    //     require:true
-    // },
-    // passwordCurrent:String,
-    // passwordChanged:Date,
-    // passwordResetToken:String,
-    // passwordResetExpiress:Date,
+     passwordConfirm:{
+        type:String,
+        require:true
+    },
+    passwordCurrent:String,
 
-    // active:{
-    //     type:Boolean,
-    //     default:true,
-    //     select:false
-    // }
 
 },
 {timestamps:true} 
