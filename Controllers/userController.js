@@ -24,7 +24,7 @@ exports.signup = async (req, res) => {
         if (!email || !password || !firstname || !lastname) {
             return res.status(401).json({
                 status: "fail",
-                message: "all the fields are required"
+                message: "All the fields are required...!"
             })
         }
          const alreadyuser = await userModel.findOne({ email })
@@ -92,7 +92,7 @@ exports.updatePassword = async (req, res, next) => {
      if (!password || !passwordConfirm|| !passwordCurrent) {
         return res.status(401).json({
             status: "fail",
-            message: "All the fields required"
+            message: "All the fields required...!"
         })
     }
     const user = await userModel.findOne({ _id: req.user.userId })
@@ -113,7 +113,7 @@ exports.updatePassword = async (req, res, next) => {
     if (password != passwordConfirm) {
         return res.status(400).json({
             status: "fail",
-            message: "New Password & Confirm password's not match"
+            message: "New password & Confirm password not match"
         })
 
     }
