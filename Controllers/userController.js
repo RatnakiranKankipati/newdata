@@ -20,7 +20,6 @@ const createSendToken = (user, statusCode, res) => {
 
 exports.signup = async (req, res) => {
     try {
-        const { firstname,lastname, email, password } = req.body
        const { firstname, lastname, email, password } = req.body
         if (!email || !password || !firstname || !lastname) {
             return res.status(401).json({
