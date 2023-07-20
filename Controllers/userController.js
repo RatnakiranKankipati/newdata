@@ -20,8 +20,9 @@ const createSendToken = (user, statusCode, res) => {
 
 exports.signup = async (req, res) => {
     try {
-        const { name, email, password } = req.body
-        if (!email || !password || !name) {
+        const { firstname,lastname, email, password } = req.body
+       const { firstname, lastname, email, password } = req.body
+        if (!email || !password || !firstname || !lastname) {
             return res.status(401).json({
                 status: "fail",
                 message: "all the fields are required"
@@ -36,7 +37,8 @@ exports.signup = async (req, res) => {
         }
        
         const user = await userModel.create({
-            name: name,
+            firstname: firstname,
+            lastname: lastname,
             email: email,
             password: password,
         })
@@ -59,12 +61,6 @@ exports.login = async (req, res) => {
         }
         const user = await userModel.findOne({ email })
 
-        // if (!user) {
-        //     return res.status(401).json({
-        //         status: "fail",
-        //         message: "please provide the vaild email and password"
-        //     })
-        // }
         if (!user) {
             return res.status(401).json({
                 status: "fail",
