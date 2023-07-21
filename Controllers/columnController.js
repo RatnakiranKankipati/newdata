@@ -7,12 +7,7 @@ exports.CreateColumn=async(req,res)=>{
     try {
 
         const {WorkItemId,Input,Output,Log,Status,CreatedOn,JobId,EqpCount,SheetCount,Duration,ErrorType } = req.body
-        const onetimepost = await column.findOne({ "Userid":req.user.userId})
-        if(onetimepost){
-            return res.status(401).json({
-                message: "this user already post the data"
-            })
-        }
+       
         const createColumn=await column.create({
             Userid:req.user.userId,
             WorkItemId: WorkItemId,
