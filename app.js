@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const express = require("express")
 const cors = require("cors")
 const userroute = require("./Routes/userRoute")
+const columnroute=require("./Routes/columnRoute")
 const app = express()
 const port = process.env.PORT || 7000
 
@@ -12,6 +13,8 @@ app.use(express.json())
 
 // users route
 app.use("/gaylordusers", userroute)
+app.use("/columnselector",columnroute)
+
 
 mongoose.set('strictQuery', false);
 
