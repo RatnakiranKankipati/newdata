@@ -54,7 +54,7 @@ exports.FindallColumns = async (req, res) => {
 exports.UpdateColumn = async (req, res) => {
     const {WorkItemId,Input,Output,Log,Status,CreatedOn,JobId,EqpCount,SheetCount,Duration,ErrorType } = req.body
     try {
-        const onecolumn = await column.findById(req.params.id)
+        const onecolumn = await column.findById({_id:req.params.id})
         if (!onecolumn) {
             return res.status(404).json({
                 msg: "no employee found this id"
