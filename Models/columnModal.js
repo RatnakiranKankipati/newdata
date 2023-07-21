@@ -6,6 +6,10 @@ const columnSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    SNo: {
+        type: Boolean,
+        default:false
+    },
     WorkItemId: {
         type: Boolean,
         default:false
