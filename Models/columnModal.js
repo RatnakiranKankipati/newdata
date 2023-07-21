@@ -1,10 +1,6 @@
 const mongoose = require("mongoose")
 
 const columnSchema = new mongoose.Schema({
-    _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
     Userid: {
         type: String,
         required: true,
