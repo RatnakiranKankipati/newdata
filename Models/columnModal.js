@@ -46,8 +46,12 @@ const columnSchema = new mongoose.Schema({
         type: Boolean,
         default:false
     },
-    Duration: {
-        type: Boolean,
+    DrawingTime:{
+        type:Boolean,
+        default:false
+    },
+    TranslationTime:{
+        type:Boolean,
         default:false
     },
     ErrorType: {
