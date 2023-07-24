@@ -79,6 +79,7 @@ exports.UpdateColumn = async (req, res) => {
             ErrorType: ErrorType,
                 
             }, { new: true, runValidators: true })
+            editcolumn.Userid=undefined
             res.status(200).json({
                 status:"success",
                 editcolumn
