@@ -32,6 +32,7 @@ exports.CreateColumn=async(req,res)=>{
             ErrorType: ErrorType,
             
         })
+        createColumn.Userid=undefined
         res.status(201).json({
             status: "success",
             createColumn
