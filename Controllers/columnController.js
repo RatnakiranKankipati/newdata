@@ -60,7 +60,7 @@ exports.UpdateColumn = async (req, res) => {
         const onecolumn = await column.findById(req.params.id)
         if (!onecolumn) {
             return res.status(404).json({
-                msg: "no employee found this id"
+                msg: "no column found this id"
             })
         }
         if (req.user.userId === onecolumn.Userid) {
