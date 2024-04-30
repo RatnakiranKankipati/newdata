@@ -8,6 +8,10 @@ const tokenSchema=new mongoose.Schema({
     refreshtoken:{
       type:String,
         required:true
+    },
+        expiretime: {
+        type: Date,
+        default: () => new Date(Date.now() + 60 * 60 * 1000) // Set default expiration time to current time + 60 minutes
     }
 },
 {timestamps:true} 
