@@ -1,4 +1,4 @@
-const token = require("../Models/tokenModel")
+const token = require("../Models/tokenModal")
 
 exports.createToken = async (req, res) => {
     try {
