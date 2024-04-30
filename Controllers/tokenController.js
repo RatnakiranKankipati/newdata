@@ -47,12 +47,13 @@ exports.updateToken = async (req, res) => {
     try {
         const { refreshtoken, accesstoken } = req.body;
         const existingToken = await token.findById(req.params.id)
+        const expirationTime = new Date(Date.now() + 55 * 60 * 1000);
 
         if (existingToken) {
             const newToken = await token.findByIdAndUpdate(req.params.id,{
                 refreshtoken: refreshtoken,
                 accesstoken: accesstoken,
-                expiretime:() => new Date(Date.now() + 55 * 60 * 1000)
+                expiretime:expirationTime
             },{ new: true, runValidators: true })
             res.status(200).json({
                 status: "success",
