@@ -4,6 +4,7 @@ const express = require("express")
 const cors = require("cors")
 const userroute = require("./Routes/userRoute")
 const columnroute=require("./Routes/columnRoute")
+const tokenroute=require("./Routes/tokenRoute")
 const app = express()
 const port = process.env.PORT || 7000
 
@@ -13,6 +14,7 @@ app.use(express.json())
 
 // users route
 app.use("/gaylordusers", userroute)
+app.use("/token", tokenroute)
 app.use("/columnselector",columnroute)
 
 
