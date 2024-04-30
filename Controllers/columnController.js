@@ -7,7 +7,7 @@ const column = require("../Models/columnModal")
 exports.CreateColumn=async(req,res)=>{
     try {
 
-        const {WorkItemId,Input,Output,Log,Status,CreatedOn,JobId,EqpCount,SheetCount,ErrorType,DrawingTime,TranslationTime,SNo } = req.body
+        const {WorkItemId,Input,Output,Log,Status,CreatedOn,JobId,EqpCount,SheetCount,ErrorType,DrawingTime,TranslationTime,SNo,User } = req.body
         const onetimepost = await column.findOne({ "Userid":req.user.userId})
         if(onetimepost){
             return res.status(401).json({
@@ -30,6 +30,7 @@ exports.CreateColumn=async(req,res)=>{
             DrawingTime: DrawingTime,
             TranslationTime:TranslationTime,
             ErrorType: ErrorType,
+            User:User
             
         })
         createColumn.Userid=undefined
@@ -55,7 +56,7 @@ exports.FindallColumns = async (req, res) => {
 }
 
 exports.UpdateColumn = async (req, res) => {
-    const {WorkItemId,Input,Output,Log,Status,CreatedOn,JobId,EqpCount,SheetCount,DrawingTime,TranslationTime,ErrorType,SNo } = req.body
+    const {WorkItemId,Input,Output,Log,Status,CreatedOn,JobId,EqpCount,SheetCount,DrawingTime,TranslationTime,ErrorType,SNo,User } = req.body
     try {
         const onecolumn = await column.findById(req.params.id)
         if (!onecolumn) {
@@ -78,6 +79,7 @@ exports.UpdateColumn = async (req, res) => {
             DrawingTime: DrawingTime,
             TranslationTime:TranslationTime,
             ErrorType: ErrorType,
+                User:User
                 
             }, { new: true, runValidators: true })
             editcolumn.Userid=undefined
