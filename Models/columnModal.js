@@ -57,6 +57,10 @@ const columnSchema = new mongoose.Schema({
     ErrorType: {
         type: Boolean,
         default:false
+    },
+    User:{
+        type: Boolean,
+        default:false
     }
 })
 
