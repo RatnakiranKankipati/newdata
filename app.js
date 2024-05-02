@@ -20,7 +20,7 @@ app.use("/columnselector",columnroute)
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect("mongodb+srv://gaylordadmin:AMcFXwieB9vsuwJr@cluster0.yevdijq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",()=>{
+mongoose.connect("mongodb+srv://gaylordadmin:AMcFXwieB9vsuwJr@cluster0.yevdijq.mongodb.net/?retryWrites=true&w=majority",()=>{
     console.log("db is connected");
 })
 
