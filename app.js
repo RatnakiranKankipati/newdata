@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI,()=>{
 
 
 
-app.listen("mongodb+srv://gaylordadmin:AMcFXwieB9vsuwJr@cluster0.yevdijq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", () => {
+app.listen("mongodb+srv://gaylordadmin:AMcFXwieB9vsuwJr@cluster0.yevdijq.mongodb.net/?retryWrites=true&w=majority", () => {
     console.log("sever is connected")
 })
 // gaylordstatistics123
