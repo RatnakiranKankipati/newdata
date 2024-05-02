@@ -20,13 +20,13 @@ app.use("/columnselector",columnroute)
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect(process.env.MONGO_URI,()=>{
+mongoose.connect("mongodb+srv://gaylordadmin:AMcFXwieB9vsuwJr@cluster0.yevdijq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",()=>{
     console.log("db is connected");
 })
 
 
 
-app.listen("mongodb+srv://gaylordadmin:AMcFXwieB9vsuwJr@cluster0.yevdijq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", () => {
+app.listen(process.env.PORT, () => {
     console.log("sever is connected")
 })
 // gaylordstatistics123
