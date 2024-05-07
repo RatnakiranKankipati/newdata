@@ -46,11 +46,9 @@ exports.Findtoken = async (req, res) => {
 exports.updateToken = async (req, res) => {
     try {
         const { refreshtoken, accesstoken,refreshexpiretime } = req.body;
-        const existingToken = await token.findById(req.params.id)
         const expirationTime = new Date(Date.now() + 55 * 60 * 1000);
          
 
-        if (existingToken) {
             const newToken = await token.findByIdAndUpdate(req.params.id,{
                 refreshtoken: refreshtoken,
                 accesstoken: accesstoken,
@@ -62,9 +60,7 @@ exports.updateToken = async (req, res) => {
                 data: newToken
             });
             
-        }else{
-            res.status(404).json({ error: 'Invalid Request' });
-        }
+       
         
     } catch (err) {
         console.log(err);
